@@ -26,6 +26,9 @@ phonecatApp.config(['$routeProvider',
         templateUrl: 'partials/phone-cart.html',
         controller: 'CartCtrl'
       }).
+      when('/welcome', {
+        templateUrl: 'partials/welcome.html'
+      }).
       otherwise({
         redirectTo: '/phones'
       });

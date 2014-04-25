@@ -1,0 +1,89 @@
+
+<h1> Welcome to Angular e-commerce demo </h1>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+<!-- Login Modal -->
+Login:
+<form>
+  <div class="name-field">
+    <label>Username <small>*</small>
+      <input type="text" id="username" required pattern="[a-zA-Z]+">
+    </label>
+    <small class="error">Name is required and must be a string.</small>
+  </div>
+  <div class="password-field">
+    <label>Password <small>*</small>
+      <input type="password" id="password" required>
+    </label>
+    <small class="error">Password is required.</small>
+  </div>
+  <button class="btn btn-success btn-sm" id="submit" type="submit" onclick="loginFunction()">login</button>
+</form>
+
+</div>
+	<div class="span6">
+<!-- Modal -->
+OR Sign up:
+
+		<form>
+		  <div class="name-field">
+		    <label>Your name <small>*</small>
+		      <input type="text" id="name" required pattern="[a-zA-Z]+">
+		    </label>
+		    <small class="error">Name is required and must be a string.</small>
+		  </div>
+		  <div class="email-field">
+		    <label>Email <small>*</small>
+		      <input type="email" id="email" required>
+		    </label>
+		    <small class="error">An email address is required.</small>
+		  </div>
+		  <div class="password-field">
+		    <label>Password <small>*</small>
+		      <input type="password" id="pass" required>
+		    </label>
+		    <small class="error">Password is required.</small>
+		  </div>
+		  <button class="btn btn-primary btn-sm"  id="submit" type="submit" onclick="regFunction()">register</button>
+		</form>
+		</div>
+	</div>
+</div>
+
+
+<script>
+
+  function loginFunction(){
+    var myname = document.getElementById("username").value;
+    var mypass = document.getElementById("password").value;
+    Parse.User.logIn(myname, mypass, {
+      success: function(user) {
+        window.location = "#/phones.html";
+      },
+      error: function(user, error) {
+        alert("Error: " + error.code + " " + error.message);
+      }
+    });
+  }
+
+  function regFunction(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("pass").value;
+    var user = new Parse.User();
+    user.set("username", name);
+    user.set("password", pass);
+    user.set("email", email);
+    user.signUp(null, {       
+        success: function(item) {
+        window.alert("Registration succeeded");
+        window.location = "#/phones.html";
+    },
+    error: function(gameScore, error) {
+        alert("Error: " + error.code + " " + error.message);
+    }
+    });
+  }
+  </script>

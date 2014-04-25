@@ -15,4 +15,38 @@
 <tr>
 </table>
 <hr/>
-Total: ${{400*cart.length}}.00 <a href="#/phones"> continue shopping </a> | <a href="#/phones"> checkout </a>
+Total: ${{400*cart.length}}.00 <a href="#/phones"> continue shopping </a> | 
+
+
+<!-- Button trigger modal -->
+<a href='' data-toggle="modal" data-target="#myModal"> checkout </a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+		  <div class="ccn-field">
+		    <label>Credit Card # <small>*</small>
+		      <input type="text" id="ccn" required pattern="[a-zA-Z]+">
+		    </label>
+		  </div>
+		  <div class="shipping address">
+		    <label>Billing ADDR. <small>*</small>
+		      <input type="text" id="addr" required>
+		    </label>
+		  </div>
+		  <button class="btn btn-success btn-sm" id="submit" type="submit" onclick="loginFunction()">save payment option</button>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ phonecatServices.factory('Phone', ['$resource',
 
 phonecatServices.factory('session', function ($cookieStore) {
         var Cart = [];
-        if ($cookieStore.get('Cart') != '') { Cart = $cookieStore.get('Cart');}
+        if ($cookieStore.get('Cart') != null) { Cart = $cookieStore.get('Cart');}
         return {
             getCart: function () {
                 return Cart;
